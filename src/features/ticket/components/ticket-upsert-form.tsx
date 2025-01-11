@@ -21,15 +21,18 @@ type TicketUpsertFormProps = {
 };
 
 const TicketUpsertForm = ({ ticket }: TicketUpsertFormProps) => {
+  // Casting the ref to be non-nullable once it's initialized
+  const datePickerImperativeHandleRef = useRef<ImperativeHandleFromDatePicker>(
+    null!
+  );
+
   const [actionState, action] = useActionState(
     upsertTicket.bind(null, ticket?.id),
     EMPTY_ACTION_STATE
   );
 
-  const datePickerImperativeHandleRef =
-    useRef<ImperativeHandleFromDatePicker>(null);
-
   const handleSuccess = () => {
+    // Ensure we check the ref before accessing
     datePickerImperativeHandleRef.current?.reset();
   };
 
