@@ -43,7 +43,7 @@ const SubmitButton = ({
             "ml-2": !!label,
           })}
         >
-          {cloneElement(icon, {
+          {cloneElement(icon as React.ReactElement<any>, {
             className: "w-4 h-4",
           })}
         </span>

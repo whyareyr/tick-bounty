@@ -46,7 +46,7 @@ const useConfirmDialog = ({
     typeof trigger === "function" ? trigger(isPending) : trigger,
     {
       onClick: () => setIsOpen((state) => !state),
-    }
+    } as React.DOMAttributes<HTMLElement>
   );
 
   const toastRef = useRef<string | number | null>(null);
